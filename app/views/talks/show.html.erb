@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1 class="display-4">
+  <%= @talk.topic %>
+  
+  </h1>
+  <p class="lead">
+    <%= @talk.tribe %>
+    <%= @talk.importance %>
+  </p>
+  <br/>
+  <div>
+  <%= link_to "Edit", edit_talk_path(@talk) ,class:"btn btn-primary" %> 
+  <%= link_to "Back to Talks", talks_path, class:"btn btn-info" %>
+</div>
+</div>

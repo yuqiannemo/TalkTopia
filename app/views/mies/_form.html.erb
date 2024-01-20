@@ -1,0 +1,57 @@
+<%= form_with(model: my) do |form| %>
+  <% if my.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(my.errors.count, "error") %> prohibited this my from being saved:</h2>
+
+      <ul>
+        <% my.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Tribes, style: "display: block" %>
+    <%= form.text_field :Tribes %>
+  </div>
+
+  <div>
+    <%= form.label :tribe, style: "display: block" %>
+    <%= form.text_field :tribe %>
+  </div>
+
+  <div>
+    <%= form.label :tribesmen, style: "display: block" %>
+    <%= form.text_field :tribesmen %>
+  </div>
+
+  <div>
+    <%= form.label :first_name, style: "display: block" %>
+    <%= form.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= form.label :email, style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :phone, style: "display: block" %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div>
+    <%= form.label :telegram, style: "display: block" %>
+    <%= form.text_field :telegram %>
+  </div>
+
+  <div>
+    <%= form.label :last_name, style: "display: block" %>
+    <%= form.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

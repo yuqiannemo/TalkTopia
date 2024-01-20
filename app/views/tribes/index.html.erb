@@ -1,0 +1,31 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tribes</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th>tribe</th>
+      <th>tribesmen</th>
+      <th>chief</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tribes.each do |tribe| %>
+      <% if tribe.user == current_user %>
+      <tr>
+        <td><%= link_to tribe.tribe, tribe %></td>
+        <td><%= tribe.tribesmen %></td>
+        <td><%= tribe.chief %></td>
+        <td><%= link_to "Edit", edit_tribe_path(tribe) %></td>
+        <td><%= button_to 'Delete', tribe, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-outline-danger btn-sm" %></td>
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New tribe", new_tribe_path, class:"btn btn-primary" %>

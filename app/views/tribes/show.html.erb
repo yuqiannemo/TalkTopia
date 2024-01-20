@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <h1 class="display-4">
+  <%= @tribe.tribe %>
+  
+  </h1>
+  <p class="lead">
+    <%= @tribe.chief %>
+    <%= @tribe.tribesmen %>
+  </p>
+  <br/>
+  <div>
+  <%= link_to "Edit", edit_tribe_path(@tribe) ,class:"btn btn-primary" %> 
+  <%= link_to "Back to Tribes", tribes_path, class:"btn btn-info" %>
+</div>
+</div>

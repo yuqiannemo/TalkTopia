@@ -1,0 +1,33 @@
+<%= form_with(model: tribe) do |form| %>
+  <% if tribe.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(tribe.errors.count, "error") %> prohibited this tribe from being saved:</h2>
+
+      <ul>
+        <% tribe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</br>
+  <div>
+    <%= form.text_field :tribe, class:"form-control",  placeholder:"tribe"%>
+  </div>
+</br>
+  <div>
+    <%= form.text_field :tribesmen, class:"form-control",  placeholder:"tribesmen" %>
+  </div>
+</br>
+  <div>
+    <%= form.text_field :chief, class:"form-control",  placeholder:"chief" %>
+  </div>
+</br>
+  <div>
+    <%= form.number_field :user_id,id: :tribe_user_id, class:"form-control",  value:current_user.id, type:"hidden" %>
+  </div>
+</br>
+  <div>
+    <%= form.submit class:"btn btn-primary" %>
+  </div>
+<% end %>
