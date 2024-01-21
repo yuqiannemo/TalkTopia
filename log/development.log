@@ -14527,3 +14527,32 @@ Processing by TribesController#index as HTML
 Completed 200 OK in 187ms (Views: 181.4ms | ActiveRecord: 0.5ms | Allocations: 17208)
 
 
+Started GET "/" for ::1 at 2024-01-21 22:25:09 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 187)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.erb:11
+  Rendered home/_header.html.erb (Duration: 420.4ms | Allocations: 19101)
+  Rendered layout layouts/application.html.erb (Duration: 438.4ms | Allocations: 22233)
+Completed 200 OK in 892ms (Views: 548.5ms | ActiveRecord: 5.0ms | Allocations: 27624)
+
+
+Started GET "/ws" for ::1 at 2024-01-21 22:25:20 +0800
+  
+ActionController::RoutingError (No route matches [GET] "/ws"):
+  
+Started GET "/" for ::1 at 2024-01-21 22:25:36 +0800
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 102)
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/home/_header.html.erb:11
+  Rendered home/_header.html.erb (Duration: 11.2ms | Allocations: 5380)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 8010)
+Completed 200 OK in 28ms (Views: 21.1ms | ActiveRecord: 3.8ms | Allocations: 8946)
+
+
