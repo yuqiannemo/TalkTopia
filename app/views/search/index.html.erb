@@ -1,0 +1,18 @@
+<h1>Search Results</h1>
+
+<% if @results.present? %>
+  <% @results.each do |result| %>
+    <%= result.title %>
+  <% end %>
+<% else %>
+  <style>
+  	p {
+      color: #ff9eb5;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-top: 20px;
+      font-family: 'Arial', sans-serif;
+    }
+  </style>
+  <p>No results found.</p>
+<% end %>

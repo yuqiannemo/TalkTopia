@@ -1,9 +1,47 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+categories = [
+  'Adventure Travel',
+  'Artistic Expressions',
+  'Breaking Stereotypes',
+  'Celebrating Diversity',
+  'Community Building',
+  'Culinary Adventures',
+  'DIY and Maker Culture',
+  'Educational Breakthroughs',
+  'Environmental Activism',
+  'Equality and Diversity',
+  'Fashion Forward',
+  'Film and Cinema Evolution',
+  'Future of Work',
+  'Global Innovations',
+  'Historical Reinterpretations',
+  'Humanitarian Efforts',
+  'Inclusive Technology',
+  'Innovative Tech Trends',
+  'Inspirational Leadership',
+  'Intersectional Feminism',
+  'Literary Gems',
+  'Mindfulness and Meditation',
+  'Music Beyond Genres',
+  'Personal Development Journeys',
+  'Positive News and Stories',
+  'Queer Art and Culture',
+  'Scientific Discoveries',
+  'Social Justice Initiatives',
+  'Space Exploration',
+  'Sports Beyond Boundaries',
+  'Sustainable Living',
+  'Transgender Voices',
+  'Unconventional Wisdom',
+  'Wellness and Mental Health',
+  'Women Empowerment',
+  'Women in Leadership',
+  'Women in STEM',
+  'Women\'s Achievements in Sports',
+  'Women\'s Contributions to Arts',
+  'Women\'s Empowerment Stories',
+  'Women\'s Health and Wellness',
+]
+
+categories.each do |category|
+  Category.create(name: category)
+end

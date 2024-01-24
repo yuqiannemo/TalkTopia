@@ -1,52 +1,207 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* CSS styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Kumbh Sans', sans-serif;
+    }
+
+    body {
+      background-color: #f8f0f4;
+    }
+
+
+    .navbar {
+      background: #ff69b4;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar__container {
+      display: flex;
+      justify-content: space-between;
+      height: 80px;
+      z-index: 1;
+      width: 100%;
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 50px;
+    }
+
+    #navbar__logo {
+      background: linear-gradient(to top, #ff0844 0%, #ffb199 100%);
+      -webkit-background-clip: text;
+      -moz-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      -moz-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      text-decoration: none;
+      font-size: 2rem;
+      color: #fff;
+    }
+
+    .fa-gem {
+      margin-right: 0.5rem;
+    }
+
+    .navbar__menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+    }
+
+    .navbar__item {
+      height: 80px;
+    }
+
+    .navbar__links {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 0 1rem;
+      height: 100%;
+    }
+
+    .navbar__btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      width: 100%;
+    }
+
+    .button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      padding: 10px 20px;
+      height: 100%;
+      width: 100%;
+      border: none;
+      outline: none;
+      border-radius: 4px;
+      background: #ff69b4;
+      color: #fff;
+    }
+
+    .button:hover {
+      background: #ff1493;
+      transition: all 0.3s ease;
+    }
+
+    .navbar__links:hover {
+      color: #ff1493;
+      transition: all 0.3s ease;
+    }
+
+    /* Media Query for Responsive Design */
+    @media screen and (max-width: 960px) {
+      .navbar__container {
+        padding: 0;
+      }
+
+      .navbar__menu {
+        display: none;
+      }
+
+      .navbar__item {
+        width: 100%;
+        text-align: center;
+      }
+
+      .navbar__links {
+        padding: 1rem;
+      }
+
+      .navbar__btn {
+        padding: 1rem;
+      }
+    }
+
+    .custom-search-button {
+      color: white;
+      border-color: floralwhite;
+      padding: 0.3rem 1rem;
+    }
+  </style>
+</head>
+</html>
+
   <div class="container-fluid">
-  	<%= link_to "TalkTopia", root_path, class:"navbar-brand" %>
-  	
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <% if user_signed_in?%>
+  <%= link_to "TalkTopia", root_path, class:"navbar-brand text-white" %>
+  
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      
+      <% if user_signed_in? %>
 
-        <li class="nav-item">
-          <%= link_to "My Tribes", tribes_path,class:"nav-link" %>
-        </li>
+      <li class="nav-item">
+        <%= link_to "My Tribes", tribes_path, class:"nav-link text-white" %>
+      </li>
 
-        <li class="nav-item">
-          <%= link_to "My Talks", talks_path,class:"nav-link" %>
-        </li>
+      <li class="nav-item">
+        <%= link_to "My Talks", talks_path, class:"nav-link text-white" %>
+      </li>
 
+      <li class="nav-item">
+        <%= link_to "Conversations", conversations_path, class:"nav-link text-white" %>
+      </li>
 
+      <li class="nav-item">
+        <%= link_to "Sign Out", destroy_user_session_path, method: :get, class:"nav-link text-white" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-link text-white" %>
+      </li>
 
-        <li class="nav-item">
-          <%= link_to "Sign Out",  destroy_user_session_path,method: :get, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Edit Profile",  edit_user_registration_path, class:"nav-link" %>
-        </li>
+      <% else %>
 
-        <% else %>
+      <li class="nav-item">
+        <%= link_to "Sign Up", new_user_registration_path, class:"nav-link text-white" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Sign In", new_user_session_path, class:"nav-link text-white" %>
+      </li>
 
-        <li class="nav-item">
-          <%= link_to "Sign Up",  new_user_registration_path, class:"nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign In",  new_user_session_path, class:"nav-link" %>
-        </li>
+      <% end %>
 
-        <% end %>
+      <li class="nav-item">
+        <%= link_to "About Us", home_about_path, class:"nav-link text-white" %>
+      </li>
 
-        <li class="nav-item">
-          <%= link_to "About Us", home_about_path, class:"nav-link" %>
-        </li>
+    </ul>
 
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+    <%= form_tag search_path, method: :get, class: "navbar-form" do %>
+    <div class="form-group row">
+    <div class="col-sm">
+      <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Search" %>
     </div>
+    <div class="col-sm-auto">
+      <%= submit_tag "Search", class: "btn custom-search-button" %>
+    </div>
+    </div>
+    <% end %>
+
+
   </div>
+</div>
 </nav>

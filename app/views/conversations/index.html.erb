@@ -1,0 +1,27 @@
+<h1>Conversations</h1>
+
+<table class="table table-striped table-bordered table-hover">
+  <thead class="thead-light">
+    <tr>
+      <th>content</th>
+      <th>tag</th>
+      <th>category</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @conversations.each do |conversation| %>
+      <tr>
+        <td><%= conversation.content %></td>
+        <td><%= conversation.tags.map(&:name).join(', ') %></td>
+        <td><%= conversation.categories.map(&:name).join(', ') %></td>
+        <td><%= link_to "Edit", edit_conversation_path(conversation), class: "btn btn-warning" %></td>
+        <td><%= button_to 'Delete', conversation, method: :delete, data: { confirm: 'Are you sure?' } , class:"btn btn-outline-danger btn-sm" %></td> 
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New conversation", new_conversation_path, class: "btn btn-primary" %>

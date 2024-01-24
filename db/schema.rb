@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_20_035151) do
+ActiveRecord::Schema[7.1].define(version: 2024_01_23_151130) do
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "conversation_categories", force: :cascade do |t|
+    t.integer "conversation_id", null: false
+    t.integer "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_conversation_categories_on_category_id"
+    t.index ["conversation_id"], name: "index_conversation_categories_on_conversation_id"
+  end
+
+  create_table "conversation_tags", force: :cascade do |t|
+    t.integer "conversation_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_conversation_tags_on_conversation_id"
+    t.index ["tag_id"], name: "index_conversation_tags_on_tag_id"
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "mies", force: :cascade do |t|
     t.string "Tribes"
     t.string "tribe"
@@ -24,12 +55,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_20_035151) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "tags", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "talks", force: :cascade do |t|
     t.string "topic"
     t.string "tribe"
     t.string "importance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "content"
   end
 
   create_table "tribes", force: :cascade do |t|
@@ -54,4 +92,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_20_035151) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "conversation_categories", "categories"
+  add_foreign_key "conversation_categories", "conversations"
+  add_foreign_key "conversation_tags", "conversations"
+  add_foreign_key "conversation_tags", "tags"
 end
