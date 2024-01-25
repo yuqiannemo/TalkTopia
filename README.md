@@ -13,3 +13,4 @@ In case the link fails, I have provided an alternatie to set up my application:
 5. Use the URL "localhost:3000" to access the website.
 
 Please note that the above steps may require the installation of certain dependencies. I have included a video in my write-up that showcases my website, so please refer to it for a better understanding.
+(note that the language distribution is not accurate)
