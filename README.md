@@ -1,6 +1,6 @@
 # README
 
-Hi, my name is Yu Qian, a current year 1 student in NUS majoring in CS. I developed this TalkTopia website using Ruby on Rails (Ruby version 3.2.2) as the backend and React.js as the frontend.
+Hi, my name is Yu Qian, a current year 1 student in NUS majoring in CS. I developed this TalkTopia website using Ruby on Rails (Ruby version 3.2.2, rails version 7.1.3) as the backend and React.js as the frontend.
 
 The link to my website is http://talktopia.fly.dev
 
