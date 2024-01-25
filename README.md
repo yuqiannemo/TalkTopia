@@ -10,4 +10,4 @@ Since due to some reason (which I haven't figured out why even though I strictly
 4. then type in "rails s"
 5. use url localhost:3000 to see the website
 
-maybe the above steps require the installation of certain things. I have included a video showing my website so please take a look.
+maybe the above steps require the installation of certain things. I have included a video in my write-up showing my website so please take a look.
